@@ -1,0 +1,23 @@
+TensorFlow 2.0 Upgrade Script
+-----------------------------
+Converted 1 files
+Detected 0 issues that require attention
+--------------------------------------------------------------------------------
+================================================================================
+Detailed log follows:
+
+================================================================================
+--------------------------------------------------------------------------------
+Processing file 'tstDemo.py'
+ outputting to 'tstDemoV2.py'
+--------------------------------------------------------------------------------
+
+20:0: INFO: Renamed 'tf.reset_default_graph' to 'tf.compat.v1.reset_default_graph'
+44:0: INFO: Renamed 'tf.reset_default_graph' to 'tf.compat.v1.reset_default_graph'
+46:9: INFO: Renamed 'tf.ConfigProto' to 'tf.compat.v1.ConfigProto'
+48:5: INFO: Renamed 'tf.Session' to 'tf.compat.v1.Session'
+49:16: INFO: Renamed 'tf.train.import_meta_graph' to 'tf.compat.v1.train.import_meta_graph'
+51:12: INFO: Renamed 'tf.get_default_graph' to 'tf.compat.v1.get_default_graph'
+56:17: INFO: Renamed 'tf.global_variables' to 'tf.compat.v1.global_variables'
+--------------------------------------------------------------------------------
+
