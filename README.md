@@ -47,7 +47,9 @@ Computational Imaging Project CIP
 
 * ``` conda activate myenv ```
 
-* ``` pip install tensorflow matplotlib numpy fastmri ```
+* ``` pip install tensorflow matplotlib numpy fastmri h5py tqdm```
+
+* **NOTE:** If some of the packages can't be pip instal try using ```conda install <package>```
 
 ## 3. USE your HPC account using TinyGPU on https://jupyterhub.rrze.uni-erlangen.de/
 ## 4. Select the kernel named *Python [conda env:conda-myenv]*
