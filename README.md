@@ -56,4 +56,4 @@ Computational Imaging Project CIP
 
 
 ## 5. Link the folder to training data:
-* ``` ln -s /home/vault/iwbi/shared/211123_fastmri_data/brain/train CIP_-MoDL_vs_VarNet-/ ``
+* ``` ln -s /home/vault/iwbi/shared/211123_fastmri_data/brain/train CIP_-MoDL_vs_VarNet-/ ```
