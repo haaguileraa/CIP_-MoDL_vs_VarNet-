@@ -53,3 +53,7 @@ Computational Imaging Project CIP
 
 ## 3. USE your HPC account using TinyGPU on https://jupyterhub.rrze.uni-erlangen.de/
 ## 4. Select the kernel named *Python [conda env:conda-myenv]*
+
+
+## 5. Link the folder to training data:
+* ´´´ ln -s /home/vault/iwbi/shared/211123_fastmri_data/brain/train CIP_-MoDL_vs_VarNet-/ ```
