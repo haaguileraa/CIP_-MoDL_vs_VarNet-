@@ -55,5 +55,7 @@ Computational Imaging Project CIP
 ## 4. Select the kernel named *Python [conda env:conda-myenv]*
 
 
-## 5. Link the folder to training data:
-* ``` ln -s /home/vault/iwbi/shared/211123_fastmri_data/brain/train CIP_-MoDL_vs_VarNet-/ ```
+## 5. Link the folder to training data (you have to be in CIP_-MoDL_vs_VarNet/):
+* ``` ln -s /home/vault/iwbi/shared/cip22_varnet_modl/brain/train```
+* ``` ln -s /home/vault/iwbi/shared/cip22_varnet_modl/brain/test```
+* ``` ln -s /home/vault/iwbi/shared/cip22_varnet_modl/brain/val```
