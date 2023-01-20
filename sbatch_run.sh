@@ -25,5 +25,5 @@ conda activate myenv
 
 # cp -r /home/vault/iwbi/iwbi005h/fastMRI_data/knee/* $TMPDIR/$SLURM_JOB_ID
 
-python train_varnet_demo.py --data_path /home/vault/iwbi/shared/cip22_varnet_modl/brain/ --mode "train" # "test"
+python train_varnet_demo.py --data_path /home/vault/iwbi/shared/cip22_varnet_modl/brain/ --mode "train" # "test" # "val"
 # rm -r $TMPDIR/$SLURM_JOB_ID
