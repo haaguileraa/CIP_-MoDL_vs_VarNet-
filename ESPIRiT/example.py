@@ -3,13 +3,18 @@ from espirit import espirit, espirit_proj, ifft
 
 import matplotlib.pyplot as plt
 import numpy as np
-
+import h5py
 # Load data
-X = cfl.readcfl('data/knee')
-x = ifft(X, (0, 1, 2))
+
+#X = cfl.readcfl('train/file_brain_AXT1POST_200_6002103')
+X = h5py.File('train/file_brain_AXT1POST_200_6002106.h5', 'r')
+kspace = X['kspace'] 
+X = np.transpose(kspace, (2,3,1,0)) #nuestro set de datos tienen las dimensiones en el lugar 2 y 3
+
+x = ifft(X, (1, 2, 3))
 
 # Derive ESPIRiT operator
-esp = espirit(X, 6, 24, 0.01, 0.9925)
+esp = espirit(X, 6, 24, 0.01, 0.9925) #al momento de llamar la función espirit, recibimos "ValueError: could not broadcast input array from shape (1152,) into shape (3456,)"
 # Do projections
 ip, proj, null = espirit_proj(x, esp)
 

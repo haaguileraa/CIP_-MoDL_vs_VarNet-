@@ -1,0 +1,47 @@
+### Starting TaskPrologue of job 541867 on tg094 at Sat 21 Jan 2023 11:51:04 AM CET
+Running on cores 32-63 with governor ondemand
+Sat Jan 21 11:51:04 2023       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 525.60.13    Driver Version: 525.60.13    CUDA Version: 12.0     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA A100-SXM...  On   | 00000000:41:00.0 Off |                    0 |
+| N/A   31C    P0    53W / 400W |      0MiB / 40960MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+python: can't open file '/home/hpc/iwbi/iwbi008h/CIP_-MoDL_vs_VarNet-/train_varnet_demo.py': [Errno 2] No such file or directory
+=== JOB_STATISTICS ===
+=== current date     : Sat 21 Jan 2023 11:51:10 AM CET
+= Job-ID             : 541867 on tinygpu
+= Job-Name           : train_varnet_demo
+= Job-Command        : /home/hpc/iwbi/iwbi008h/CIP_-MoDL_vs_VarNet-/sbatch_run.sh
+= Initial workdir    : /home/hpc/iwbi/iwbi008h/CIP_-MoDL_vs_VarNet-
+= Queue/Partition    : a100
+= Slurm account      : iwbi with QOS=normal
+= Requested resources: cpu=32,mem=120000M,node=1,billing=32,gres/gpu=1,gres/gpu:a100=1 for 23:00:00
+= Elapsed runtime    : 00:00:11
+= Total RAM usage    : 0.0 GiB of requested 117 GiB (0.0%)   
+= Node list          : tg094
+= Subm/Elig/Start/End: 2023-01-21T11:50:59 / 2023-01-21T11:50:59 / 2023-01-21T11:50:59 / 2023-01-21T11:51:10
+======================
+=== Quota infos ======
+    Path              Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/hpc         3279.4M    52.4G   104.9G        N/A   1,113      500K   1,000K        N/A    
+    /home/vault          0.0K   524.3G  1048.6G        N/A       1      200K     400K        N/A    
+    /home/woody          6.8G   500.0G   750.0G        N/A      64K                          N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
