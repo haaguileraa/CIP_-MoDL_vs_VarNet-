@@ -47,8 +47,8 @@ def apply_mask(data,
         sampled_image_rss = fastmri.rss(sampled_image_abs, dim=0)
         sampled_image_rss = np.abs(sampled_image_rss.numpy())
         atbs.append(sampled_image_rss)
-        masks.append(mask)
-    return atbs, masks
+        masks.append(mask.numpy())
+    return np.asarray(atbs), np.asarray(masks)
 
 
 with h5.File(f, 'r') as data:
