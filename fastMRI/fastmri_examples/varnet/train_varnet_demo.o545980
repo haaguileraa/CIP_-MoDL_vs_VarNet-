@@ -1,0 +1,83 @@
+### Starting TaskPrologue of job 545980 on tg096 at Fri 27 Jan 2023 02:16:07 PM CET
+Running on cores 32-63 with governor ondemand
+Fri Jan 27 14:16:07 2023       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 525.60.13    Driver Version: 525.60.13    CUDA Version: 12.0     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA A100-SXM...  On   | 00000000:41:00.0 Off |                    0 |
+| N/A   32C    P0    53W / 400W |      0MiB / 40960MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+[rank: 0] Global seed set to 42
+/home/woody/iwbi/iwbi009h/software/privat/conda/envs/myenv/lib/python3.10/site-packages/pytorch_lightning/trainer/connectors/accelerator_connector.py:446: LightningDeprecationWarning: Setting `Trainer(gpus=1)` is deprecated in v1.7 and will be removed in v2.0. Please use `Trainer(accelerator='gpu', devices=1)` instead.
+  rank_zero_deprecation(
+/home/woody/iwbi/iwbi009h/software/privat/conda/envs/myenv/lib/python3.10/site-packages/lightning_lite/plugins/environments/slurm.py:167: PossibleUserWarning: The `srun` command is available on your system but is not used. HINT: If your intention is to run Lightning on SLURM, prepend your python command with `srun` like so: srun python train_varnet_demo.py --data_path /home/vault/iwbi/sh ...
+  rank_zero_warn(
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+Traceback (most recent call last):
+  File "/home/hpc/iwbi/iwbi009h/CIP_-MoDL_vs_VarNet-/fastMRI/fastmri_examples/varnet/train_varnet_demo.py", line 197, in <module>
+    run_cli()
+  File "/home/hpc/iwbi/iwbi009h/CIP_-MoDL_vs_VarNet-/fastMRI/fastmri_examples/varnet/train_varnet_demo.py", line 193, in run_cli
+    cli_main(args)
+  File "/home/hpc/iwbi/iwbi009h/CIP_-MoDL_vs_VarNet-/fastMRI/fastmri_examples/varnet/train_varnet_demo.py", line 73, in cli_main
+    trainer.fit(model, datamodule=data_module)
+  File "/home/woody/iwbi/iwbi009h/software/privat/conda/envs/myenv/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 582, in fit
+    call._call_and_handle_interrupt(
+  File "/home/woody/iwbi/iwbi009h/software/privat/conda/envs/myenv/lib/python3.10/site-packages/pytorch_lightning/trainer/call.py", line 36, in _call_and_handle_interrupt
+    return trainer.strategy.launcher.launch(trainer_fn, *args, trainer=trainer, **kwargs)
+  File "/home/woody/iwbi/iwbi009h/software/privat/conda/envs/myenv/lib/python3.10/site-packages/pytorch_lightning/strategies/launchers/subprocess_script.py", line 90, in launch
+    return function(*args, **kwargs)
+  File "/home/woody/iwbi/iwbi009h/software/privat/conda/envs/myenv/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 624, in _fit_impl
+    self._run(model, ckpt_path=self.ckpt_path)
+  File "/home/woody/iwbi/iwbi009h/software/privat/conda/envs/myenv/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 991, in _run
+    self._data_connector.prepare_data()
+  File "/home/woody/iwbi/iwbi009h/software/privat/conda/envs/myenv/lib/python3.10/site-packages/pytorch_lightning/trainer/connectors/data_connector.py", line 110, in prepare_data
+    self.trainer._call_lightning_datamodule_hook("prepare_data")
+  File "/home/woody/iwbi/iwbi009h/software/privat/conda/envs/myenv/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 1324, in _call_lightning_datamodule_hook
+    return fn(*args, **kwargs)
+  File "/home/woody/iwbi/iwbi009h/software/privat/conda/envs/myenv/lib/python3.10/site-packages/fastmri/pl_modules/data_module.py", line 293, in prepare_data
+    _ = SliceDataset(
+  File "/home/woody/iwbi/iwbi009h/software/privat/conda/envs/myenv/lib/python3.10/site-packages/fastmri/data/mri_data.py", line 268, in __init__
+    files = list(Path(root).iterdir())
+  File "/home/woody/iwbi/iwbi009h/software/privat/conda/envs/myenv/lib/python3.10/pathlib.py", line 1017, in iterdir
+    for name in self._accessor.listdir(self):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/vault/iwbi/shared/cip22_varnet_modl/brain/multicoil_train'
+=== JOB_STATISTICS ===
+=== current date     : Fri 27 Jan 2023 02:16:27 PM CET
+= Job-ID             : 545980 on tinygpu
+= Job-Name           : train_varnet_demo
+= Job-Command        : /home/hpc/iwbi/iwbi009h/CIP_-MoDL_vs_VarNet-/fastMRI/fastmri_examples/varnet/sbatch_run.sh
+= Initial workdir    : /home/hpc/iwbi/iwbi009h/CIP_-MoDL_vs_VarNet-/fastMRI/fastmri_examples/varnet
+= Queue/Partition    : a100
+= Slurm account      : iwbi with QOS=normal
+= Requested resources: cpu=32,mem=120000M,node=1,billing=32,gres/gpu=1,gres/gpu:a100=1 for 23:00:00
+= Elapsed runtime    : 00:00:22
+= Total RAM usage    : 0.0 GiB of requested 117 GiB (0.0%)   
+= Node list          : tg096
+= Subm/Elig/Start/End: 2023-01-27T14:16:04 / 2023-01-27T14:16:04 / 2023-01-27T14:16:05 / 2023-01-27T14:16:27
+======================
+=== Quota infos ======
+    Path              Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/hpc            8.3G    52.4G   104.9G        N/A  44,119      500K   1,000K        N/A    
+    /home/vault          0.0K   524.3G  1048.6G        N/A       1      200K     400K        N/A    
+    /home/woody          6.9G   500.0G   750.0G        N/A      64K                          N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
