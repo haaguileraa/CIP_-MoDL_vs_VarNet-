@@ -1,0 +1,3 @@
+[submodule "espirit-python"]
+	path = espirit-python
+	url = git@github.com:mikgroup/espirit-python.git
