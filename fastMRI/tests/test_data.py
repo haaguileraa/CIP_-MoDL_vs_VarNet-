@@ -26,6 +26,7 @@ def test_slice_datasets(fastmri_mock_dataset, monkeypatch):
         for split in ("train", "val", "test", "challenge"):
             dataset = SliceDataset(
                 knee_path / f"{challenge}_{split}", transform=None, challenge=challenge
+                #f"{challenge}_{split}", transform=None, challenge=challenge
             )
 
             assert len(dataset) > 0
@@ -66,7 +67,8 @@ def test_filtered_slice_datasets(
     for challenge in ("multicoil", "singlecoil"):
         for split in ("train", "val", "test", "challenge"):
             dataset = SliceDataset(
-                knee_path / f"{challenge}_{split}",
+                brain_path / f"{challenge}_{split}",
+                #knee_path / f"{challenge}_{split}",
                 transform=None,
                 challenge=challenge,
                 raw_sample_filter=raw_sample_filter,
