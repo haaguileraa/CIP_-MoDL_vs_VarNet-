@@ -30,7 +30,7 @@ def cli_main(args):
     # use random masks for train transform, fixed masks for val transform
     train_transform = VarNetDataTransform(mask_func=mask, use_seed=False)
     val_transform = VarNetDataTransform(mask_func=mask)
-    test_transform = VarNetDataTransform()
+    test_transform = VarNetDataTransform(mask_func=mask) ## Edited by VarNetvsMoDL
     # ptl data module - this handles data loaders
     data_module = FastMriDataModule(
         data_path=args.data_path,
@@ -87,7 +87,8 @@ def build_args():
     batch_size = 1
 
     # set defaults based on optional directory config
-    data_path = fetch_dir("knee_path", path_config)
+    #data_path = fetch_dir("knee_path", path_config)
+    data_path = fetch_dir("brain_path", path_config)
     default_root_dir = fetch_dir("log_path", path_config) / "varnet" / "varnet_demo"
 
     # client arguments
@@ -129,7 +130,7 @@ def build_args():
         mask_type="equispaced_fraction",  # VarNet uses equispaced mask
         challenge="multicoil",  # only multicoil implemented for VarNet
         batch_size=batch_size,  # number of samples per batch
-        test_path=None,  # path for test split, overwrites data_path
+        test_path=None  # path for test split, overwrites data_path
     )
 
     # module config
