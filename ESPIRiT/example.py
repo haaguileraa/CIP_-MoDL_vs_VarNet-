@@ -6,16 +6,16 @@ import numpy as np
 import h5py
 # Load data
 
-#X = cfl.readcfl('train/knee')
-X = h5py.File('train/file_brain_AXT1POST_200_6002106.h5', 'r')
-kspace = X['kspace']
-print(kspace) #shape of the kspace (16,20,640,320)
-X = np.transpose(kspace, (0,2,3,1)) #nuestro set de datos tienen las dimensiones en el lugar 2 y 3
-print(X)
-x = ifft(X, (1, 2, 3))
+#X = cfl.readcfl('train/file_brain_AXT1POST_200_6002103')
+X = h5py.File('train/file_brain_AXFLAIR_201_6002902.h5', 'r')
+kspace = X['kspace']  # coils/channels, slice (z), h (y), w (x)
+# Expected dimensions from E-SPIRiT are (sx, sy, sz, nc)
+kspace = np.transpose(kspace, (3,2,1,0)) # We need the following sequence : 3, 2, 1, 0 
+# kspace is now 
+x = ifft(kspace, (0,1,2))
 
 # Derive ESPIRiT operator
-esp = espirit(X, 12, 24, 0.01, 0.9925) #al momento de llamar la función espirit, recibimos "ValueError: could not broadcast input array from shape (1152,) into shape (3456,)"
+esp = espirit(kspace, 6, 24, 0.01, 0.9925) #al momento de llamar la función espirit, recibimos "ValueError: could not broadcast input array from shape (1152,) into shape (3456,)"
 # Do projections
 ip, proj, null = espirit_proj(x, esp)
 

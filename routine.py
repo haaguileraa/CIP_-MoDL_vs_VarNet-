@@ -26,10 +26,11 @@ path = "/train/" # /home/vault/iwbi/shared/cip22_varnet_modl/brain/train/ # trai
 # for filename in os.listdir(path):
 #     f = os.path.join(path, filename):
 
-f = "/home/hpc/iwbi/iwbi009h/CIP_-MoDL_vs_VarNet-/train/file_brain_AXT1POST_200_6002124.h5"
+f = "/home/hpc/iwbi/iwbi009h/CIP_-MoDL_vs_VarNet-/multicoil_train/file_brain_AXFLAIR_201_6002915.h5"
+mode = 'train' # 'test'
 
 
-def apply_mask(data, 
+def extract_data(data, 
                mask_type="equispaced_fraction",  # VarNet uses equispaced mask
                center_fractions = [0.08 ],
                accelerations = [4] ):
@@ -51,14 +52,22 @@ def apply_mask(data,
     return np.asarray(atbs), np.asarray(masks)
 
 
+
+
 with h5.File(f, 'r') as data:
-    atb_data, mask_data = apply_mask(data)
+    atb_data, mask_data = extract_data(data)
     with h5.File('test.h5', 'w') as target: # creating a new file containing the necesary data to use it with MoDL
         # order: <KeysViewHDF5 ['atb', 'csm', 'mask', 'org']>
-        target.create_dataset('atb', data = atb_data)    # is the aliased/noisy image
-        target.create_dataset('csm', data = f['reconstruction_rss'])    # saves the coil sensitivity maps
-        target.create_dataset('mask', data = mask_data)   # is the undersampling mask 
-        target.create_dataset('org', data = f['reconstruction_rss'])    # this is the original ground truth
+        if mode == 'train':
+            #target.create_dataset('atb', data = atb_data)    # is the aliased/noisy image # It is not necessary for Brain_data
+            target.create_dataset('trnCsm', data = f['reconstruction_rss'])    # saves the coil sensitivity maps
+            target.create_dataset('trnMask', data = mask_data)   # is the undersampling mask 
+            target.create_dataset('trnOrg', data = f['reconstruction_rss'])    # this is the original ground truth
+        elif mode == 'test':
+            #target.create_dataset('atb', data = atb_data)    # is the aliased/noisy image # It is not necessary for Brain_data
+            target.create_dataset('tstCsm', data = f['reconstruction_rss'])    # saves the coil sensitivity maps
+            target.create_dataset('tstMask', data = mask_data)   # is the undersampling mask 
+            target.create_dataset('tstOrg', data = f['reconstruction_rss'])    # this is the original ground truth
 
 
 
