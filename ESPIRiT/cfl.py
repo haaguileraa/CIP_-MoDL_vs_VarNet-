@@ -11,7 +11,7 @@ import numpy as np
 
 def readcfl(name):
     # get dims from .hdr
-    h = open(name + ".h5", "r")
+    h = open(name + ".hdr", "r")
     h.readline() # skip
     l = h.readline()
     h.close()
