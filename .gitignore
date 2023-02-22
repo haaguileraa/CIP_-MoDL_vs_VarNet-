@@ -130,4 +130,6 @@ dmypy.json
 .ckpt
 fastMRI/fastmri_examples/varnet/varnet/varnet_demo/checkpoints/
 fastMRI/fastmri_examples/varnet/varnet/varnet_demo/reconstructions
-.h5
+*.h5
+*.hdf5
+modl/savedModels
