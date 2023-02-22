@@ -26,7 +26,7 @@ path = "/train/" # /home/vault/iwbi/shared/cip22_varnet_modl/brain/train/ # trai
 # for filename in os.listdir(path):
 #     f = os.path.join(path, filename):
 
-f = "/home/hpc/iwbi/iwbi009h/CIP_-MoDL_vs_VarNet-/train/file_brain_AXT1POST_200_6002124.h5"
+f = "/home/hpc/iwbi/iwbi009h/CIP_-MoDL_vs_VarNet-/multicoil_train/file_brain_AXFLAIR_201_6002915.h5"
 mode = 'train' # 'test'
 
 
