@@ -60,4 +60,4 @@ Computational Imaging Project CIP
 * ``` ln -s /home/vault/iwbi/shared/cip22_varnet_modl/brain/test```
 * ``` ln -s /home/vault/iwbi/shared/cip22_varnet_modl/brain/val```
 
-git remote set-url origin https://haaguileraa:TOKENGOESHERE@github.com/haaguileraa/CIP_-MoDL_vs_VarNet-.git/
+git remote set-url origin https://<username>:<TOKENGOESHERE>@github.com/haaguileraa/CIP_-MoDL_vs_VarNet-.git/
