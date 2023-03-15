@@ -61,9 +61,8 @@ Computational Imaging Project CIP
 * ``` ln -s /home/vault/iwbi/shared/cip22_varnet_modl/brain/val```
 
 
-
 ## 6. Usage Compat: 
 
 * ``` tf_upgrade_v2 --infile <module_to_convert> --outfile <name_of_the_target_file> ```
 
-* See 
+* See
