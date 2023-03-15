@@ -60,4 +60,9 @@ Computational Imaging Project CIP
 * ``` ln -s /home/vault/iwbi/shared/cip22_varnet_modl/brain/test```
 * ``` ln -s /home/vault/iwbi/shared/cip22_varnet_modl/brain/val```
 
-git remote set-url origin https://<username>:<TOKENGOESHERE>@github.com/haaguileraa/CIP_-MoDL_vs_VarNet-.git/
+
+## 6. Usage Compat: 
+
+* ``` tf_upgrade_v2 --infile <module_to_convert> --outfile <name_of_the_target_file> ```
+
+* See
