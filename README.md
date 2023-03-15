@@ -66,4 +66,4 @@ Computational Imaging Project CIP
 
 * ``` tf_upgrade_v2 --infile <module_to_convert> --outfile <name_of_the_target_file> ```
 
-* See 
+* See [Upgrading your code to Tensorflow 2.0](https://blog.tensorflow.org/2019/02/upgrading-your-code-to-tensorflow-2-0.html?m=1 "Tensorflow's Blog ")
