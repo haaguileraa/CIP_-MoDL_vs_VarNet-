@@ -67,3 +67,6 @@ Computational Imaging Project CIP
 
 * See [Upgrading your code to Tensorflow 2.0](https://blog.tensorflow.org/2019/02/upgrading-your-code-to-tensorflow-2-0.html?m=1 "Tensorflow's Blog ")
 
+## 7. Copying files from HPC to local 
+
+* ``` scp -r <user>@tinyx.nhr.fau.de:/home/hpc/iwbi/<user>/origin_dir home/user/objective_directory ```
