@@ -118,7 +118,7 @@ def build_args():
     parser.add_argument(
         "--accelerations",
         nargs="+",
-        default=[4],
+        default=[2], #try with 3 or 2 (current clinical standard)
         type=int,
         help="Acceleration rates to use for masks",
     )

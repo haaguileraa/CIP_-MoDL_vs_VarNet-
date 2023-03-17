@@ -133,3 +133,6 @@ fastMRI/fastmri_examples/varnet/varnet/varnet_demo/reconstructions
 *.h5
 *.hdf5
 modl/savedModels
+fastMRI/fastmri_examples/varnet/varnet/varnet_demo/_old
+*.ckpt
+fastMRI/fastmri_examples/varnet/varnet/varnet_demo/_old/checkpoints/epoch=47-step=15072.ckpt
