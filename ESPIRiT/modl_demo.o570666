@@ -1,0 +1,78 @@
+### Starting TaskPrologue of job 570666 on tg096 at Sat 18 Mar 2023 01:57:39 AM CET
+Running on cores 0-31 with governor ondemand
+Sat Mar 18 01:57:39 2023       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 525.60.13    Driver Version: 525.60.13    CUDA Version: 12.0     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA A100-SXM...  On   | 00000000:01:00.0 Off |                    0 |
+| N/A   36C    P0    52W / 400W |      0MiB / 40960MiB |      0%      Default |
+|                               |                      |             Disabled |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+### Finished TaskPrologue
+
+Traceback (most recent call last):
+  File "/home/woody/iwbi/iwbi009h/software/privat/conda/envs/myenv/lib/python3.10/site-packages/llvmlite/binding/ffi.py", line 160, in <module>
+    lib = ctypes.CDLL(str(_lib_handle.__enter__()))
+  File "/home/woody/iwbi/iwbi009h/software/privat/conda/envs/myenv/lib/python3.10/ctypes/__init__.py", line 374, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /lib/x86_64-linux-gnu/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by /home/woody/iwbi/iwbi009h/software/privat/conda/envs/myenv/lib/python3.10/site-packages/llvmlite/binding/../../../../libLLVM-11.so)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/hpc/iwbi/iwbi009h/CIP_-MoDL_vs_VarNet-/ESPIRiT/testsig.py", line 1, in <module>
+    from sigpy.mri.app import EspiritCalib as Espirit
+  File "/home/woody/iwbi/iwbi009h/software/privat/conda/envs/myenv/lib/python3.10/site-packages/sigpy/__init__.py", line 12, in <module>
+    from sigpy import alg, app, config, linop, prox
+  File "/home/woody/iwbi/iwbi009h/software/privat/conda/envs/myenv/lib/python3.10/site-packages/sigpy/app.py", line 10, in <module>
+    from sigpy import backend, linop, prox, util
+  File "/home/woody/iwbi/iwbi009h/software/privat/conda/envs/myenv/lib/python3.10/site-packages/sigpy/linop.py", line 9, in <module>
+    from sigpy import backend, block, fourier, util, interp, conv, wavelet
+  File "/home/woody/iwbi/iwbi009h/software/privat/conda/envs/myenv/lib/python3.10/site-packages/sigpy/block.py", line 6, in <module>
+    import numba as nb
+  File "/home/woody/iwbi/iwbi009h/software/privat/conda/envs/myenv/lib/python3.10/site-packages/numba/__init__.py", line 19, in <module>
+    from numba.core import config
+  File "/home/woody/iwbi/iwbi009h/software/privat/conda/envs/myenv/lib/python3.10/site-packages/numba/core/config.py", line 16, in <module>
+    import llvmlite.binding as ll
+  File "/home/woody/iwbi/iwbi009h/software/privat/conda/envs/myenv/lib/python3.10/site-packages/llvmlite/binding/__init__.py", line 4, in <module>
+    from .dylib import *
+  File "/home/woody/iwbi/iwbi009h/software/privat/conda/envs/myenv/lib/python3.10/site-packages/llvmlite/binding/dylib.py", line 3, in <module>
+    from llvmlite.binding import ffi
+  File "/home/woody/iwbi/iwbi009h/software/privat/conda/envs/myenv/lib/python3.10/site-packages/llvmlite/binding/ffi.py", line 167, in <module>
+    raise OSError(msg)
+OSError: Could not find/load shared object file: libllvmlite.so
+ Error was: /lib/x86_64-linux-gnu/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by /home/woody/iwbi/iwbi009h/software/privat/conda/envs/myenv/lib/python3.10/site-packages/llvmlite/binding/../../../../libLLVM-11.so)
+=== JOB_STATISTICS ===
+=== current date     : Sat 18 Mar 2023 01:59:51 AM CET
+= Job-ID             : 570666 on tinygpu
+= Job-Name           : modl_demo
+= Job-Command        : /home/hpc/iwbi/iwbi009h/CIP_-MoDL_vs_VarNet-/ESPIRiT/sbatch_run.sh
+= Initial workdir    : /home/hpc/iwbi/iwbi009h/CIP_-MoDL_vs_VarNet-/ESPIRiT
+= Queue/Partition    : a100
+= Slurm account      : iwbi with QOS=normal
+= Requested resources: cpu=32,mem=120000M,node=1,billing=32,gres/gpu=1,gres/gpu:a100=1 for 23:00:00
+= Elapsed runtime    : 00:02:21
+= Total RAM usage    : 0.2 GiB of requested 117 GiB (0.2%)   
+= Node list          : tg096
+= Subm/Elig/Start/End: 2023-03-18T01:57:30 / 2023-03-18T01:57:30 / 2023-03-18T01:57:30 / 2023-03-18T01:59:51
+======================
+=== Quota infos ======
+    Path              Used     SoftQ    HardQ    Gracetime  Filec    FileQ    FiHaQ    FileGrace    
+    /home/hpc           17.7G    52.4G   104.9G        N/A      51K     500K   1,000K        N/A    
+    /home/vault          0.0K   524.3G  1048.6G        N/A       4      200K     400K        N/A    
+    /home/woody         12.5G   500.0G   750.0G        N/A      74K                          N/A    
+======================
+=== GPU utilization ==
+gpu_name, gpu_bus_id, pid, gpu_utilization [%], mem_utilization [%], max_memory_usage [MiB], time [ms]
