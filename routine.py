@@ -14,6 +14,16 @@ import numpy as np
 # mask is the undersampling mask 
 
 
+############## 
+'''' 
+
+Please do not use this file, the routine is on  fastMRI/sigpy_test.ipynb 
+We will integrate and facilitate everything by just using this file, stay put :)
+
+''' 
+
+#############
+
 
 mask_type="equispaced_fraction"  # VarNet uses equispaced mask
 center_fractions = [0.08 ]
