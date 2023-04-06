@@ -8,6 +8,7 @@ This file contains some supporting functions used during training and testing.
 import time
 import numpy as np
 import h5py as h5
+import tensorflow as tf
 
 #%%
 def div0( a, b ):
@@ -269,3 +270,4 @@ def assignWts(sess1,nLay,wts):
         if len(tfv2)!=0 and len(npv2)!=0:
             sess1.run(tfv2[0].assign(wts[npv2[0]]))
     return sess1
+

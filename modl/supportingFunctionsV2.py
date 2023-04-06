@@ -8,6 +8,7 @@ This file contains some supporting functions used during training and testing.
 import time
 import numpy as np
 import h5py as h5
+import tensorflow as tf
 
 #%%
 def div0( a, b ):
@@ -195,25 +196,25 @@ def getWeights(wtsDir,chkPointNum='last'):
         wt: numpy dictionary containing the weights. The keys names ae full
         names of corersponding tensors in the model.
     """
-    tf.reset_default_graph()
+    tf.compat.v1.reset_default_graph()
     if chkPointNum=='last':
         loadChkPoint=tf.train.latest_checkpoint(wtsDir)
     else:
         loadChkPoint=wtsDir+'/model'+chkPointNum
-    config = tf.ConfigProto()
+    config = tf.compat.v1.ConfigProto()
     config.gpu_options.allow_growth=True
-    with tf.Session(config=config) as s1:
-        saver = tf.train.import_meta_graph(wtsDir + '/modelTst.meta')
+    with tf.compat.v1.Session(config=config) as s1:
+        saver = tf.compat.v1.train.import_meta_graph(wtsDir + '/modelTst.meta')
         saver.restore(s1, loadChkPoint)
-        keys=[n.name+':0' for n in tf.get_default_graph().as_graph_def().node if "Variable" in n.op]
-        var=tf.global_variables()
+        keys=[n.name+':0' for n in tf.compat.v1.get_default_graph().as_graph_def().node if "Variable" in n.op]
+        var=tf.compat.v1.global_variables()
 
         wt={}
         for key in keys:
             va=[v for v in var if v.name==key][0]
             wt[key]=s1.run(va)
 
-    tf.reset_default_graph()
+    tf.compat.v1.reset_default_graph()
     return wt
 
 def assignWts(sess1,nLay,wts):
@@ -224,7 +225,7 @@ def assignWts(sess1,nLay,wts):
         wts: numpy dictionary containing the weights
     """
 
-    var=tf.global_variables()
+    var=tf.compat.v1.global_variables()
     #check lam and beta; these for for alternate strategy scalars
 
     #check lamda 1
@@ -269,3 +270,4 @@ def assignWts(sess1,nLay,wts):
         if len(tfv2)!=0 and len(npv2)!=0:
             sess1.run(tfv2[0].assign(wts[npv2[0]]))
     return sess1
+

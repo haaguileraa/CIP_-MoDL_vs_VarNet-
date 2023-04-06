@@ -54,7 +54,7 @@ import numpy as np
 import tensorflow as tf
 from datetime import datetime
 from tqdm import tqdm
-import supportingFunctions as sf
+import modl.supportingFunctions_V1 as sf
 import model as mm
 
 tf.reset_default_graph()

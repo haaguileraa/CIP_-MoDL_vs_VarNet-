@@ -196,4 +196,3 @@ print ('training completed at', datetime.now().strftime("%d-%b-%Y %I:%M %P"))
 print ('*************************************************')
 
 #%%
-

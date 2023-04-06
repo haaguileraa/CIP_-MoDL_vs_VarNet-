@@ -12,7 +12,6 @@
 #SBATCH --export=NONE
 
 
-
 unset SLURM_EXPORT_ENV
 
 module load cuda
