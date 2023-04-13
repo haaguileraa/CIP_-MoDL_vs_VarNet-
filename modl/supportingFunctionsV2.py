@@ -80,7 +80,7 @@ def myPSNR(org,recon):
 def getData(trnTst='testing',num=100,sigma=.01):
     #num: set this value between 0 to 163. There are total testing 164 slices in testing data
     print('Reading the data. Please wait...')
-    filename='dataset.hdf5' #set the correct path here
+    filename='datasetCIP.h5' #set the correct path here
     #filename='/Users/haggarwal/datasets/piData/dataset.hdf5'
 
     tic()
@@ -208,11 +208,22 @@ def getWeights(wtsDir,chkPointNum='last'):
         saver.restore(s1, loadChkPoint)
         keys=[n.name+':0' for n in tf.compat.v1.get_default_graph().as_graph_def().node if "Variable" in n.op]
         var=tf.compat.v1.global_variables()
-
+        print(var)
+        print(keys)
         wt={}
+        # for key in keys:
+        #     va=[v for v in var if v.name==key][0]
+        #     wt[key]=s1.run(va)
+        
+        # create a dictionary of variables with variable names as keys
+        var_dict = {v.name: v for v in var}
+
+        # loop through keys and access variables by key from the dictionary
         for key in keys:
-            va=[v for v in var if v.name==key][0]
-            wt[key]=s1.run(va)
+            if key in var_dict:
+                wt[key] = s1.run(var_dict[key])
+            else:
+                print(f"Variable with name {key} not found in var_dict.")
 
     tf.compat.v1.reset_default_graph()
     return wt
@@ -270,4 +281,3 @@ def assignWts(sess1,nLay,wts):
         if len(tfv2)!=0 and len(npv2)!=0:
             sess1.run(tfv2[0].assign(wts[npv2[0]]))
     return sess1
-
