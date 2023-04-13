@@ -76,7 +76,7 @@ restoreWeights=False
 # it is better to initialize with a pre-trained model with K=1.
 if K>1:
     restoreWeights=True
-    restoreFromModel='04Jun_0243pm_5L_1K_100E_AG'
+    restoreFromModel='12Apr_0842pm_5L_1K_50E_AG'
 
 if restoreWeights:
     wts=sf.getWeights('savedModels/'+restoreFromModel)
@@ -97,7 +97,7 @@ sessFileName= directory+'/model'
 #%% save test model
 tf.compat.v1.reset_default_graph()
 
-csmT = tf.compat.v1.placeholder(tf.complex64,shape=(None,12,256,232),name='csm')
+csmT = tf.compat.v1.placeholder(tf.complex64,shape=(None,16,256,232),name='csm')
 maskT= tf.compat.v1.placeholder(tf.complex64,shape=(None,256,232),name='mask')
 atbT = tf.compat.v1.placeholder(tf.float32,shape=(None,256,232,2),name='atb')
 
