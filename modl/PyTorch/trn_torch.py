@@ -1,7 +1,7 @@
 import os, time
 import numpy as np
 import torch
-import supportingFunctions as sf
+import supportingFunctions_torch as sf
 import model_torch as mm
 from datetime import datetime
 from tqdm import tqdm
@@ -43,7 +43,6 @@ if not os.path.exists(directory):
     os.makedirs(directory)
 sessFileName = directory + '/model'
 
-'#Pytorch translation of the below code'
 
 # save test model
 

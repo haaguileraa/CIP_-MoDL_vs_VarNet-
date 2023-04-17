@@ -13,7 +13,7 @@ import os
 import numpy as np
 import torch
 import matplotlib.pyplot as plt
-import supportingFunctions as sf
+import supportingFunctions_torch as sf
 
 cwd=os.getcwd()
 torch.cuda.empty_cache()
